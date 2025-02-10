@@ -8,10 +8,21 @@
     <artifactId>algorithm</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>algorithm.codetop</module>
+        <module>algorithm-leetcode</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>pers.lilpen</groupId>
+            <artifactId>data-structure-base</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>
