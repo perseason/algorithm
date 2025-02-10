@@ -13,14 +13,14 @@ public class GroupAnagrams_49 {
      * 字母异位词 是由重新排列源单词的所有字母得到的一个新单词。
      */
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<Array, List<String>> stringArrayListHashMap = new HashMap<>();
+        Map<ArrayKey, List<String>> stringArrayListHashMap = new HashMap<>();
         for (String str : strs) {
             int[] letterCountNums = new int[26];
             for (char c : str.toCharArray()) {
                 int num = c - 'a';
                 letterCountNums[num]++;
             }
-            Array array = new Array(letterCountNums);
+            ArrayKey array = new ArrayKey(letterCountNums);
             List<String> resList = stringArrayListHashMap.getOrDefault(array, new ArrayList<>());
             resList.add(str);
             stringArrayListHashMap.put(array, resList);
@@ -28,9 +28,9 @@ public class GroupAnagrams_49 {
         return new ArrayList<>(stringArrayListHashMap.values());
     }
 
-    private static class Array {
+    private static class ArrayKey {
         public int[] array;
-        public Array(int[] array) {
+        public ArrayKey(int[] array) {
             this.array = array;
         }
 
@@ -38,7 +38,7 @@ public class GroupAnagrams_49 {
         public boolean equals(Object object) {
             if (this == object) return true;
             if (object == null || getClass() != object.getClass()) return false;
-            Array array1 = (Array) object;
+            ArrayKey array1 = (ArrayKey) object;
             return Objects.deepEquals(array, array1.array);
         }
 
